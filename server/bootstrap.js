@@ -11,6 +11,8 @@ module.exports = ({ strapi }) => {
                 const depth = populate[1] ?? 5
                 const modelObject = getFullPopulateObject(event.model.uid, depth)
                 event.params.populate = modelObject.populate
+
+                // console.log(JSON.stringify(event.params.populate, null, 4))
             }
         }
     })

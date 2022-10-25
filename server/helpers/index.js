@@ -13,12 +13,15 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
     if (maxDepth <= 1) {
         return true
     }
+
     if (modelUid === 'admin::user') {
         return undefined
     }
 
     const populate = {}
     const model = strapi.getModel(modelUid)
+
+    // console.log('model', Object.entries(getModelPopulationAttributes(model)))
     for (const [key, value] of Object.entries(getModelPopulationAttributes(model))) {
         if (value) {
             if (value.type === 'component') {
@@ -42,6 +45,7 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
             }
         }
     }
+
     return isEmpty(populate) ? true : { populate }
 }
 
