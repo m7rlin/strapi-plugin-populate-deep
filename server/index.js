@@ -1,7 +1,9 @@
 'use strict'
 
-const bootstrap = require('./bootstrap')
+const bootstrap = require('./bootstrap');
+const config = require('./config')
 
 module.exports = {
-    bootstrap,
-}
+  bootstrap,
+  config
+};
